@@ -132,6 +132,7 @@ std::string convertToRomNum(int t_num)
 	std::string ans = "";
 	int romanNum = t_num;
 
+	int positions[] = { 1000, 100, 10, 1 };
 	std::string numerals[][9] = {
 		{ "M", "MM", "MMM", "",   "",  "",   "",    "",     ""   },
 		{ "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
@@ -139,27 +140,12 @@ std::string convertToRomNum(int t_num)
 		{ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }
 	};
 
-
-
-	int thousandDigit = 0;
-	thousandDigit = romanNum / 1000;
-	romanNum = romanNum % 1000;
-	ans += digitToNumeral(thousandDigit, numerals[0]);
-
-	int hundredDigit = 0;
-	hundredDigit = romanNum / 100;
-	romanNum = romanNum % 100;
-	ans += digitToNumeral(hundredDigit, numerals[1]);
-
-	int tenDigit = 0;
-	tenDigit = romanNum / 10;
-	romanNum = romanNum % 10;
-	ans += digitToNumeral(tenDigit, numerals[2]);
-
-	int unitDigit = 0;
-	unitDigit = romanNum / 1;
-	romanNum = romanNum % 1;
-	ans += digitToNumeral(unitDigit, numerals[3]);
+	for (int i = 0; i < 4;i++) {
+		int digit = 0;
+		digit = romanNum / positions[i];
+		romanNum = romanNum % positions[i];
+		ans += digitToNumeral(digit, numerals[i]);
+	}
 
 	return ans;
 }
