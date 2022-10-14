@@ -133,52 +133,12 @@ std::string convertToRomNum(int t_num)
 	if (thousandDigit >=1 && thousandDigit <= 3)
 		ans = ans + thousandNumerals[thousandDigit-1];
 
-
-
-
-	int C = 0;
-	C = romanNum / 100;
+	int hundredDigit = 0;
+	hundredDigit = romanNum / 100;
 	romanNum = romanNum % 100;
-	if (C == 1)
-	{
-		ans = ans + "C";
-	}
-	else if (C == 2)
-	{
-		ans = ans + "CC";
-	}
-	else if (C == 3)
-	{
-		ans = ans + "CCC";
-	}
-	else if (C == 4)
-	{
-		ans = ans + "CD";
-	}
-	else if (C == 5)
-	{
-		ans = ans + "D";
-	}
-	else if (C == 6)
-	{
-		ans = ans + "DC";
-	}
-	else if (C == 7)
-	{
-		ans = ans + "DCC";
-	}
-	else if (C == 8)
-	{
-		ans = ans + "DCCC";
-	}
-	else if (C == 9)
-	{
-		ans = ans + "CM";
-	}
-
-
-
-
+	std::string hundredNumerals[] = { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+	if (hundredDigit >= 1 && hundredDigit <= 9)
+		ans = ans + hundredNumerals[hundredDigit - 1];
 
 	int X = 0;
 	X = romanNum / 10;
