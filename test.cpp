@@ -140,48 +140,12 @@ std::string convertToRomNum(int t_num)
 	if (hundredDigit >= 1 && hundredDigit <= 9)
 		ans = ans + hundredNumerals[hundredDigit - 1];
 
-	int X = 0;
-	X = romanNum / 10;
+	int tenDigit = 0;
+	tenDigit = romanNum / 10;
 	romanNum = romanNum % 10;
-	if (X == 1)
-	{
-		ans = ans + "X";
-	}
-	else if (X == 2)
-	{
-		ans = ans + "XX";
-	}
-	else if (X == 3)
-	{
-		ans = ans + "XXX";
-	}
-	else if (X == 4)
-	{
-		ans = ans + "XL";
-	}
-	else if (X == 5)
-	{
-		ans = ans + "L";
-	}
-	else if (X == 6)
-	{
-		ans = ans + "LX";
-	}
-	else if (X == 7)
-	{
-		ans = ans + "LXX";
-	}
-	else if (X == 8)
-	{
-		ans = ans + "LXXX";
-	}
-	else if (X == 9)
-	{
-		ans = ans + "XC";
-	}
-
-
-
+	std::string tenNumerals[] = { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+	if (tenDigit >= 1 && tenDigit <= 9)
+		ans = ans + tenNumerals[tenDigit - 1];
 
 	int I = 0;
 	I = romanNum / 1;
