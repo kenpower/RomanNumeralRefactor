@@ -126,21 +126,12 @@ std::string convertToRomNum(int t_num)
 	std::string ans = "";
 	int romanNum = t_num;
 
-	int M = 0;
-	M = romanNum / 1000;
+	int thousandDigit = 0;
+	thousandDigit = romanNum / 1000;
 	romanNum = romanNum % 1000;
-	if (M == 1)
-	{
-		ans = ans + "M";
-	}
-	else if (M == 2)
-	{
-		ans = ans + "MM";
-	}
-	else if (M == 3)
-	{
-		ans = ans + "MMM";
-	}
+	std::string thousandNumerals[] = {"M", "MM", "MMM"};
+	if (thousandDigit >=1 && thousandDigit <= 3)
+		ans = ans + thousandNumerals[thousandDigit-1];
 
 
 
