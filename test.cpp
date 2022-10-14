@@ -132,29 +132,34 @@ std::string convertToRomNum(int t_num)
 	std::string ans = "";
 	int romanNum = t_num;
 
+	std::string numerals[][9] = {
+		{ "M", "MM", "MMM", "",   "",  "",   "",    "",     ""   },
+		{ "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
+		{ "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },
+		{ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }
+	};
+
+
+
 	int thousandDigit = 0;
 	thousandDigit = romanNum / 1000;
 	romanNum = romanNum % 1000;
-	std::string thousandNumerals[] = { "M", "MM", "MMM"};
-	ans += digitToNumeral(thousandDigit, thousandNumerals);
+	ans += digitToNumeral(thousandDigit, numerals[0]);
 
 	int hundredDigit = 0;
 	hundredDigit = romanNum / 100;
 	romanNum = romanNum % 100;
-	std::string hundredNumerals[] = { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-	ans += digitToNumeral(hundredDigit, hundredNumerals);
+	ans += digitToNumeral(hundredDigit, numerals[1]);
 
 	int tenDigit = 0;
 	tenDigit = romanNum / 10;
 	romanNum = romanNum % 10;
-	std::string tenNumerals[] = { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-	ans += digitToNumeral(tenDigit, tenNumerals);
+	ans += digitToNumeral(tenDigit, numerals[2]);
 
 	int unitDigit = 0;
 	unitDigit = romanNum / 1;
 	romanNum = romanNum % 1;
-	std::string unitNumerals[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
-	ans += digitToNumeral(unitDigit, unitNumerals);
+	ans += digitToNumeral(unitDigit, numerals[3]);
 
 	return ans;
 }
