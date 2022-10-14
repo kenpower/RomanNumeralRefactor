@@ -119,7 +119,13 @@ TEST(TestCaseName3999, TestName3999)
 
 
 
-
+std::string digitToNumeral(int digit) {
+	std::string result = "";
+	std::string thousandNumerals[] = { "M", "MM", "MMM" };
+	if (digit >= 1 && digit <= 3)
+		result = thousandNumerals[digit - 1];
+	return result;
+}
 
 std::string convertToRomNum(int t_num)
 {
@@ -129,9 +135,7 @@ std::string convertToRomNum(int t_num)
 	int thousandDigit = 0;
 	thousandDigit = romanNum / 1000;
 	romanNum = romanNum % 1000;
-	std::string thousandNumerals[] = {"M", "MM", "MMM"};
-	if (thousandDigit >=1 && thousandDigit <= 3)
-		ans = ans + thousandNumerals[thousandDigit-1];
+	ans += digitToNumeral(thousandDigit);
 
 	int hundredDigit = 0;
 	hundredDigit = romanNum / 100;
