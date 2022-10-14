@@ -130,7 +130,7 @@ std::string digitToNumeral(int digit, std::string numerals[]) {
 std::string convertToRomNum(int t_num)
 {
 	std::string ans = "";
-	int romanNum = t_num;
+	int numberRemaining = t_num;
 
 	int positions[] = { 1000, 100, 10, 1 };
 	std::string numerals[][9] = {
@@ -141,9 +141,8 @@ std::string convertToRomNum(int t_num)
 	};
 
 	for (int i = 0; i < 4;i++) {
-		int digit = 0;
-		digit = romanNum / positions[i];
-		romanNum = romanNum % positions[i];
+		int digit = numberRemaining / positions[i];
+		numberRemaining = numberRemaining % positions[i];
 		ans += digitToNumeral(digit, numerals[i]);
 	}
 
