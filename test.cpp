@@ -122,7 +122,7 @@ TEST(TestCaseName3999, TestName3999)
 std::string digitToNumeral(int digit, std::string numerals[]) {
 	std::string result = "";
 	
-	if (digit >= 1 && digit <= 3)
+	if (digit >= 1 && digit <= 9)
 		result = numerals[digit - 1];
 	return result;
 }
@@ -135,29 +135,26 @@ std::string convertToRomNum(int t_num)
 	int thousandDigit = 0;
 	thousandDigit = romanNum / 1000;
 	romanNum = romanNum % 1000;
-	std::string thousandNumerals[] = { "M", "MM", "MMM" };
+	std::string thousandNumerals[] = { "M", "MM", "MMM"};
 	ans += digitToNumeral(thousandDigit, thousandNumerals);
 
 	int hundredDigit = 0;
 	hundredDigit = romanNum / 100;
 	romanNum = romanNum % 100;
 	std::string hundredNumerals[] = { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-	if (hundredDigit >= 1 && hundredDigit <= 9)
-		ans = ans + hundredNumerals[hundredDigit - 1];
+	ans += digitToNumeral(hundredDigit, hundredNumerals);
 
 	int tenDigit = 0;
 	tenDigit = romanNum / 10;
 	romanNum = romanNum % 10;
 	std::string tenNumerals[] = { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-	if (tenDigit >= 1 && tenDigit <= 9)
-		ans = ans + tenNumerals[tenDigit - 1];
+	ans += digitToNumeral(tenDigit, tenNumerals);
 
 	int unitDigit = 0;
 	unitDigit = romanNum / 1;
 	romanNum = romanNum % 1;
 	std::string unitNumerals[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
-	if (unitDigit >= 1 && unitDigit <= 9)
-		ans = ans + unitNumerals[unitDigit - 1];
+	ans += digitToNumeral(unitDigit, unitNumerals);
 
 	return ans;
 }
