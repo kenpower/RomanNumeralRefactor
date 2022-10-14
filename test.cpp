@@ -147,45 +147,12 @@ std::string convertToRomNum(int t_num)
 	if (tenDigit >= 1 && tenDigit <= 9)
 		ans = ans + tenNumerals[tenDigit - 1];
 
-	int I = 0;
-	I = romanNum / 1;
+	int unitDigit = 0;
+	unitDigit = romanNum / 1;
 	romanNum = romanNum % 1;
-	if (I == 1)
-	{
-		ans = ans + "I";
-	}
-	else if (I == 2)
-	{
-		ans = ans + "II";
-	}
-	else if (I == 3)
-	{
-		ans = ans + "III";
-	}
-	else if (I == 4)
-	{
-		ans = ans + "IV";
-	}
-	else if (I == 5)
-	{
-		ans = ans + "V";
-	}
-	else if (I == 6)
-	{
-		ans = ans + "VI";
-	}
-	else if (I == 7)
-	{
-		ans = ans + "VII";
-	}
-	else if (I == 8)
-	{
-		ans = ans + "VIII";
-	}
-	else if (I == 9)
-	{
-		ans = ans + "IX";
-	}
+	std::string unitNumerals[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+	if (unitDigit >= 1 && unitDigit <= 9)
+		ans = ans + unitNumerals[unitDigit - 1];
 
 	return ans;
 }
