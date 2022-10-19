@@ -123,12 +123,18 @@ std::string digitToNumeral(int digit, std::string numerals[]) {
 	return digit == 0 ? "" : numerals[digit - 1];
 }
 
+int nthDigitFrom(int num, int n) {
+	int positions[] = { 1000, 100, 10, 1 };
+
+	int result = (num / positions[n]) % 10;
+
+	return result;
+}
+
 std::string convertToRomNum(int t_num)
 {
 	std::string ans = "";
-	int numberRemaining = t_num;
 
-	int positions[] = { 1000, 100, 10, 1 };
 	std::string numerals[][9] = {
 		{ "M", "MM", "MMM", "",   "",  "",   "",    "",     ""   },
 		{ "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
@@ -136,11 +142,9 @@ std::string convertToRomNum(int t_num)
 		{ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }
 	};
 
-	for (int i = 0; i < 4;i++) {
-		int digit = numberRemaining / positions[i];
-		numberRemaining = numberRemaining % positions[i];
-		ans += digitToNumeral(digit, numerals[i]);
-	}
+	for (int i = 0; i < 4;i++) 
+		ans += digitToNumeral(nthDigitFrom(t_num, i), numerals[i]);
+	
 
 	return ans;
 }
