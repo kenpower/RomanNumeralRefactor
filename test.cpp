@@ -120,11 +120,7 @@ TEST(TestCaseName3999, TestName3999)
 
 
 std::string digitToNumeral(int digit, std::string numerals[]) {
-	std::string result = "";
-	
-	if (digit >= 1 && digit <= 9)
-		result = numerals[digit - 1];
-	return result;
+	return digit == 0 ? "" : numerals[digit - 1];
 }
 
 std::string convertToRomNum(int t_num)
