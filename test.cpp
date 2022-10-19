@@ -124,9 +124,9 @@ std::string digitToNumeral(int digit, std::string numerals[]) {
 }
 
 int nthDigitFrom(int num, int n) {
-	int positions[] = { 1000, 100, 10, 1 };
+	int position = pow(10, 3-n);
 
-	int result = (num / positions[n]) % 10;
+	int result = (num / position) % 10;
 
 	return result;
 }
