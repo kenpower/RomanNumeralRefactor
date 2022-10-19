@@ -126,9 +126,7 @@ std::string digitToNumeral(int digit, std::string numerals[]) {
 int nthDigitFrom(int num, int n) {
 	int position = pow(10, n);
 
-	int result = (num / position) % 10;
-
-	return result;
+	return (num / position) % 10;
 }
 
 std::string convertToRomNum(int t_num)
@@ -145,6 +143,5 @@ std::string convertToRomNum(int t_num)
 	for (int i = 3; i >= 0 ; i--) 
 		ans += digitToNumeral(nthDigitFrom(t_num, i), numerals[i]);
 	
-
 	return ans;
 }
