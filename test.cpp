@@ -131,7 +131,7 @@ int nthDigitFrom(int num, int n) {
 
 std::string convertToRomNum(int t_num)
 {
-	std::string ans = "";
+	std::string result = "";
 
 	std::string numerals[][9] = {
 		{ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },
@@ -141,7 +141,7 @@ std::string convertToRomNum(int t_num)
 	};
 
 	for (int i = 3; i >= 0 ; i--) 
-		ans += digitToNumeral(nthDigitFrom(t_num, i), numerals[i]);
+		result += digitToNumeral(nthDigitFrom(t_num, i), numerals[i]);
 	
-	return ans;
+	return result;
 }
