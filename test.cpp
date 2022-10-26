@@ -116,9 +116,6 @@ TEST(TestCaseName3999, TestName3999)
 	EXPECT_EQ(convertToRomNum(3999), "MMMCMXCIX");
 }
 
-std::string digitToNumeral(int digit, std::string numerals[]) {
-	return numerals[digit];
-}
 
 int nthDigitFrom(int num, int n) {
 	int position = pow(10, n);
@@ -130,15 +127,15 @@ std::string convertToRomNum(int t_num)
 {
 	std::string result = "";
 
-	std::string numerals[][10] = {
+	std::string digitToNumeralLookup[][10] = {
 		{ "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },
 		{ "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },
 		{ "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
 		{ "", "M", "MM", "MMM", "",   "",  "",   "",    "",     ""   }
 	};
 
-	for (int i = 3; i >= 0 ; i--) 
-		result += digitToNumeral(nthDigitFrom(t_num, i), numerals[i]);
+	for (int digitPosition = 3; digitPosition >= 0 ; digitPosition--) 
+		result += digitToNumeralLookup[digitPosition][nthDigitFrom(t_num, digitPosition)];
 	
 	return result;
 }
