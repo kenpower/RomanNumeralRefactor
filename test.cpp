@@ -117,7 +117,7 @@ TEST(TestCaseName3999, TestName3999)
 }
 
 std::string digitToNumeral(int digit, std::string numerals[]) {
-	return digit == 0 ? "" : numerals[digit - 1];
+	return numerals[digit];
 }
 
 int nthDigitFrom(int num, int n) {
@@ -130,11 +130,11 @@ std::string convertToRomNum(int t_num)
 {
 	std::string result = "";
 
-	std::string numerals[][9] = {
-		{ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },
-		{ "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },
-		{ "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
-		{ "M", "MM", "MMM", "",   "",  "",   "",    "",     ""   }
+	std::string numerals[][10] = {
+		{ "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },
+		{ "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" },
+		{ "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
+		{ "", "M", "MM", "MMM", "",   "",  "",   "",    "",     ""   }
 	};
 
 	for (int i = 3; i >= 0 ; i--) 
