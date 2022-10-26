@@ -116,9 +116,6 @@ TEST(TestCaseName3999, TestName3999)
 	EXPECT_EQ(convertToRomNum(3999), "MMMCMXCIX");
 }
 
-
-
-
 std::string digitToNumeral(int digit, std::string numerals[]) {
 	return digit == 0 ? "" : numerals[digit - 1];
 }
